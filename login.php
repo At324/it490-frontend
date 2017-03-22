@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -14,19 +15,19 @@
 <?php
 
 	require_once('RmqClient.php');
-	$options = [
-		'cost' => 11,
-	];
-
-	//retrieve input
 	$user = $_POST['username'];
 	$passwd = $_POST['password'];
-	$hash = password_hash($passwd, PASSWORD_BCRYPT, $options);
 
-	$client = new RmqClient();
+	$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+	$request = $array();
+	$request['type'] = "login";
+	$request['username'] = "$user";
+	$request['type'] = "$passwd";
+	//retrieve input
+	
+	$response = $client->send_request($request);
 
-	$client->sendLogin($user, $hash);
-
+	print_r($response);
 ?>
 
 

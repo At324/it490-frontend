@@ -18,7 +18,7 @@ class RmqClient(){
 		$request['type'] = "login";
 		$request['username'] = $username;
 		$request['password'] = $password;
-		$response = $client->send_request($request);
+		$response = $this->client->send_request($request);
 
 		//if response["returncode"] => '1' echo message
 		//else start a session, log session datetime, and set session variables to user info by username
@@ -43,7 +43,7 @@ class RmqClient(){
 		$request['password'] = $password;
 		$request['firstname'] = $firstname;
 		$request['lastname'] = $lastname;
-		$response = $client->send_request($request);
+		$response = $this->client->send_request($request);
 
 		print_r($response["message"]);
 		//TODO: redirect to login
@@ -54,7 +54,7 @@ class RmqClient(){
 		request = array();
 		$request['type'] = "session";
 		$request['username'] = $username;
-		$response = $client->send_request($request);
+		$response = $this->client->send_request($request);
 	}
 
 	/**
@@ -65,7 +65,7 @@ class RmqClient(){
 		request = array();
 		$request['type'] = "log";
 		$request['message'] = $msg;
-		$response = $client->send_request($request);
+		$response = $this->client->send_request($request);
 	}
 	/*echo "client received response: ".PHP_EOL;
 	print_r($response);

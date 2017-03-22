@@ -7,16 +7,16 @@ require_once('databaseHelper.inc');
 
 function doLogin($username,$password)
 {
-    $dbHelper = new DatabaseHelper(); 
+    $dbFunc = new DatabaseHelper(); 
 
 
-    if(!$dbHelper->connect())
+    if(!$dbFunc->connect())
     {	
 	return array("returnCode" => '1', 'message'=>"Error connecting to server");
     }
 
 
-    $info = $dbHelper->getUserInfo($username, $password);
+    $info = $dbFunc->getUserInfo($username, $password);
     //return $info;
     if($info)
     {	
@@ -32,9 +32,9 @@ function doLogin($username,$password)
 
 function doRegister($request)
 {
-    $dbHelper = new DatabaseHelper();
+    $dbFunc = new DatabaseHelper();
     
-    if($dbHelper->registerUser($request['username'], $request['password'], $request['firstname'], $request['lastname'], $request['email']))
+    if($dbFunc->registerUser($request['username'], $request['password'], $request['firstname'], $request['lastname'], $request['email']))
     {
 	return array("returnCode" => '1', 'message'=>"Registration successful");
     }
@@ -53,7 +53,7 @@ function logMessage($request)
 
 function add2DMZ($request)
 {
-  $dbHelper = new DatabaseHelper();
+  $dbFunc = new DatabaseHelper();
 
   
 

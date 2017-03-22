@@ -8,8 +8,7 @@ class DatabaseHelper
 {
 	private $conn;
 
-// Attempts to connect to the database
-// If the database does not exist log the error
+// Connect to database, log on error
 
 	public function connect()
 	{

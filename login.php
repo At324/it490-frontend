@@ -16,15 +16,20 @@
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
+$options = [
+	'cost' => 11,
+];
+
 $user = $_POST['username'];
 $passwd = $_POST['password'];
+$hash = password_hash($passwd, PASSWORD_BCRYPT, $options);
 
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 echo "here";
 $request = array();
 $request['type'] = "login";
 $request['username'] = "$user";
-$request['password'] = "$passwd";
+$request['password'] = "$hash";
 //$request['message'] = "HI";
 
 $response = $client->send_request($request);

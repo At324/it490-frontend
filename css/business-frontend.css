@@ -10,8 +10,8 @@ body {
 /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
 
 .business-header {
-    height: 400px;
-    background: url('http://placehold.it/1920x400') center center no-repeat scroll;
+    height: 600px;
+    background: url('https://cnet2.cbsistatic.com/img/OVbT4DMLmQfscn_TYy49Ts4uarA=/1600x900/2016/06/07/3c40abe8-ae00-40fa-a209-c462148c277c/nvidia-geforce-gtx-1080-main.png') center center no-repeat scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;

@@ -13,29 +13,19 @@
 
 <?php
 
-require_once('path.inc');
-require_once('get_host_info.inc');
-require_once('rabbitMQLib.inc');
-$user = $_POST['username'];
-$passwd = $_POST['password'];
+	require_once('RmqClient.php');
+	$options = [
+		'cost' => 11,
+	];
 
-$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
-echo "here";
-$request = array();
-$request['type'] = "login";
-$request['username'] = "$user";
-$request['password'] = "$passwd";
-//$request['message'] = "HI";
+	//retrieve input
+	$user = $_POST['username'];
+	$passwd = $_POST['password'];
+	$hash = password_hash($passwd, PASSWORD_BCRYPT, $options);
 
-$response = $client->send_request($request);
-//$response = $client->publish($request);
+	$client = new RmqClient();
 
-
-echo "client received response: ".PHP_EOL;
-print_r($response);
-echo "\n\n";
-
-echo $argv[0]." END".PHP_EOL;
+	$client->sendLogin($user, $hash);
 
 ?>
 

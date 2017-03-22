@@ -36,14 +36,13 @@ class RmqClient(){
 	}
 
 	//register
-	function sendRegister($username, $password, $firstname, $lastname, $email){
+	function sendRegister($username, $password, $firstname, $lastname){
 		request = array();
 		$request['type'] = "register";
 		$request['username'] = $username;
 		$request['password'] = $password;
 		$request['firstname'] = $firstname;
 		$request['lastname'] = $lastname;
-		$request['email'] = $email;
 		$response = $client->send_request($request);
 
 		print_r($response["message"]);

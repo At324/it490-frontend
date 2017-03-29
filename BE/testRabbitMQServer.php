@@ -22,6 +22,7 @@ function doLogin($username,$password)
     if($info)
     {	
       logMessage(array("returnCode" => '0', 'message'=>"Login successful for" . " " . $str));
+      sessionId($username);
 	return (array('returnCode' => '0', 'message' => 'Login successful') + $info);
     }
     

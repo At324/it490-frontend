@@ -12,7 +12,7 @@ function doLogin($username,$password)
 
     if(!$dbHelper->connect())
     {	
-	return array("returnCode" => '1', 'message'=>"Error connecting to server");
+	return array("returnCode" => '1', 'message'=>"Nah, Y'all didn't get it");
     }
 
 
@@ -64,8 +64,17 @@ function add2DMZ($request)
   
 
 }
+function checkDeploy($request)
+{
+  $version = $request['version'];
 
-function requestProcessor($request)
+  
+  
+  
+
+}
+
+function processor($request)
 {
   echo "Request Received".PHP_EOL;
   var_dump($request);
@@ -90,13 +99,16 @@ function requestProcessor($request)
     case "add2DMZ";
       logMessage($request);
       return add2DMZ($request);
+    case "checkDeploy";
+      logMessage($request);
+      return deploy($request);
   }
 
-  return array("returnCode" => '0', 'message'=>"Server received request and processed");
+  return array("returnCode" => '0', 'message'=>"Y'all did it");
 }
 
 $server = new rabbitMQServer("testRabbitMQ.ini","testServer");
 
-$server->process_requests('requestProcessor');
+$server->process_requests('processor');
 exit();
 ?>

@@ -144,15 +144,4 @@ class DatabaseHelper
 	
 }
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
-
-class Deployment
-{
-
-	public function Deploy(packageName, targetServer)
-	{
-
-
-	}
-	
-}
 ?>

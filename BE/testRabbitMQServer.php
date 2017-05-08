@@ -76,7 +76,7 @@ function checkDeploy($request)
 
 function processor($request)
 {
-  echo "Request Received".PHP_EOL;
+  echo "request complete".PHP_EOL;
   var_dump($request);
   echo '\n' . 'End Message';
   if(!isset($request['type']))

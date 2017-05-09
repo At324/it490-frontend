@@ -22,7 +22,7 @@
 	$request = $array();
 	$request['type'] = "login";
 	$request['username'] = "$user";
-	$request['type'] = "$passwd";
+	$request['password'] = "$passwd";
 	//retrieve input
 	
 	$response = $client->send_request($request);

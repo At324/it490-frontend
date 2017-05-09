@@ -144,5 +144,4 @@ class DatabaseHelper
 	
 }
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
-
 ?>

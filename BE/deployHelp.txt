@@ -1,0 +1,24 @@
+package - config file
+
+	copy files to tmp
+
+	request version #
+
+	compress to "loginclient.1.tgz"
+
+	scp to deploy
+
+Deploy - packageName, target Server
+
+	send request to deploy
+
+	check if exists
+
+	scp package to target
+
+	send install command to target
+
+	extract files to tmp
+
+	read config
+	

@@ -13,7 +13,9 @@
 
 <?php
 
-	require_once('RmqClient.php');
+	require_once('rabbitMQLib.inc');
+	require_once('get_host_info.inc');
+	require_once('path.inc');
 	$options = [
 		'cost' => 11,
 	];
@@ -25,9 +27,18 @@
 	$firstname = $_POST['firstname'];
 	$lastname = $_POST['lastname'];
 
-	$client = new RmqClient();
+	$request = array();
+	$request['type']="login";
+	$request['username']="$user";
+	$request['password']="$hash";
+	$request['firstname']="$firstname";
+	$request['lastname']="$lastname";
 
-	$client->sendRegister($username, $hash, $firstname, $lastname);
+	$client = new rabbitMQClient("testRabbitMQ.ini", "testServer");
+
+	$response = $client->send_request($request);
+//$response = $client->publish($request);
+
 
 ?>
 

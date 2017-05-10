@@ -13,5 +13,5 @@ echo "started packaging"
 
 	tar -zcvf BEPackage-Version-.tar.gz /home/sean/tmp/ . 
 	
-	scp -r BEPackage-Version-.tar.gz sean@10.10.10.116:/home/sean/zip/
+	scp -r BEPackage-Version-.tar.gz sean@192.168.0.126:/home/sean/zip/
 	echo "Sent"

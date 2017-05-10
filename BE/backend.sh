@@ -5,7 +5,7 @@ echo "started packaging"
 	echo "MySQL Password?"
 		mkdir sqlBackup
 			cd sqlBackup/
-				mysqldump -u root -p login > backup_sql.sql
+				mysqldump -u root -p login > sqlBackup.sql
 				cd ..
 	
 	

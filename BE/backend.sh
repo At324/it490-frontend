@@ -9,7 +9,7 @@ echo "started packaging"
 				cd ..
 	
 	
-	cp -a /home/sean/Documents/BE /home/sean/tmp/
+	cp -a /home/sean/Desktop/it490-frontend/BE /home/sean/tmp/
 
 	tar -zcvf BEPackage-Version-.tar.gz /home/sean/tmp/ . 
 	

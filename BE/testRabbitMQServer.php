@@ -28,7 +28,7 @@ function doLogin($username,$password)
     
     else
     {
-logMessage(array("returnCode" => '1', 'message'=>"Login unsuccessful for" . " " . $str));
+	logMessage(array("returnCode" => '1', 'message'=>"Login unsuccessful for" . " " . $str));
 	return (array("returnCode" => '1', 'message'=>"Login unsuccessful"));
     }
 
@@ -90,16 +90,16 @@ function processor($request)
       return doRegister($request);
     case "login":
       logMessage($request);
-      return doLogin($request['username'],$request['password']);
+      return doLogin($request['username'],$request['password'];
     case "log":
       return logMessage($request);
-   case "session";
+   case "session":
       logMessage($request);
       return sessionId($request);
-    case "add2DMZ";
+    case "add2DMZ":
       logMessage($request);
       return add2DMZ($request);
-    case "checkDeploy";
+    case "checkDeploy":
       logMessage($request);
       return deploy($request);
   }

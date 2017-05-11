@@ -14,20 +14,21 @@
 
 <?php
 
-	require_once('RmqClient.php');
+	require_once('rabbitMQLib.inc');
+	require_once('get_host_info.inc');
+	require_once('path.inc');
 	$user = $_POST['username'];
 	$passwd = $_POST['password'];
 
-	$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
-	$request = $array();
+	$request = array();
 	$request['type'] = "login";
 	$request['username'] = "$user";
 	$request['password'] = "$passwd";
 	//retrieve input
 	
-	$response = $client->send_request($request);
+	$client = new rabbitMQClient("testRabbitMQ.ini", "testServer");
 
-	print_r($response);
+	$response = $client->send_request($request);
 ?>
 
 
